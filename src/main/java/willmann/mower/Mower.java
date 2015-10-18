@@ -101,14 +101,19 @@ public final class Mower {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s %s %s", getX(), getY(), getOrientation());
+    }
+
     /**
      * Enumeration corresponding to the possible directions faced by a mower.
      */
     public enum Orientation {
-        NORTH,
-        SOUTH,
-        EAST,
-        WEST;
+        NORTH("N"),
+        SOUTH("S"),
+        EAST("E"),
+        WEST("w");
 
         static {
             NORTH.left = WEST;
@@ -124,8 +129,18 @@ public final class Mower {
             WEST.right = NORTH;
         }
 
+        private final String label;
         private Orientation left;
         private Orientation right;
+
+        Orientation(final String label) {
+            this.label = label;
+        }
+
+        @Override
+        public String toString() {
+            return this.label;
+        }
 
     }
 }
