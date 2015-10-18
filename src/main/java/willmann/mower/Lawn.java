@@ -42,4 +42,20 @@ public final class Lawn {
         }
         return new Lawn(this.length, this.width, newMower);
     }
+
+    /**
+     * Turn the mower left
+     * @return the new state of the lawn
+     */
+    public Lawn turnMowerLeft() {
+        return new Lawn(this.length, this.width, getCurrentMower().turnLeft());
+    }
+
+    /**
+     * Turn the mower right
+     * @return the new state of the lawn
+     */
+    public Lawn turnMowerRight() {
+        return new Lawn(this.length, this.width, getCurrentMower().turnRight());
+    }
 }
