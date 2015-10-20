@@ -20,6 +20,11 @@ public final class MowerInstructions {
     private final Lawn initialPosition;
     private final List<Move> moves;
 
+    /**
+     * Reads the instruction from an input stream
+     * @return a list of instructions
+     * @throws BadInstructionsException if the input stream contains invalid instructions.
+     */
     public static List<MowerInstructions> readInstructions(final InputStream input) throws BadInstructionsException {
         final List<MowerInstructions> result = new ArrayList<>();
         try {
@@ -58,6 +63,10 @@ public final class MowerInstructions {
         this.moves = moves;
     }
 
+    /**
+     * Execute those instructions
+     * @return the final position of the mower after instructions execution
+     */
     public Mower executeInstructions() {
         Lawn lawn = this.initialPosition;
         for(final Move move : moves) {
@@ -101,6 +110,9 @@ public final class MowerInstructions {
         return moves;
     }
 
+    /**
+     * Enum corresponding to the possible moves
+     */
     public enum Move {
         LEFT,
         RIGHT,
