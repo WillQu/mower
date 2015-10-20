@@ -34,6 +34,10 @@ public final class MowerInstructions {
 
             String line;
             while((line = reader.readLine()) != null) {
+                if("".equals(line)) {
+                    continue;
+                }
+
                 final Lawn lawn = readLawn(line, length, width);
                 line = reader.readLine();
                 if(line == null) {
